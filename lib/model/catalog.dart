@@ -1,20 +1,5 @@
-class Item {
-  final String id;
-  final String name;
-  final String desc;
-  final num price;
-  final String color;
-  final String image;
-
-  Item({
-    required this.id,
-    required this.name,
-    required this.desc,
-    required this.price,
-    required this.color,
-    required this.image,
-  });
-  final products = [
+class CatalogModel {
+  static final items = [
     Item(
         id: "Product001",
         name: 'iPhone 12 Pro',
@@ -48,4 +33,22 @@ class Item {
         image:
             'https://img1.ibay.com.mv/is1/full/2021/05/item_3353112_289.jpg'),
   ];
+}
+
+class Item {
+  final String id;
+  final String name;
+  final String desc;
+  final num price;
+  final String color;
+  final String image;
+
+  Item({
+    required this.id,
+    required this.name,
+    required this.desc,
+    required this.price,
+    required this.color,
+    required this.image,
+  });
 }
