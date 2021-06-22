@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 
 class ItemWidget extends StatelessWidget {
   final Item item;
-  ItemWidget({Key? key, required this.item})
-      : assert(item != null),
-        super(key: key);
-
+  ItemWidget({Key? key, required this.item}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
