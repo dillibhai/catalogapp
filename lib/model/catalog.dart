@@ -2,11 +2,11 @@ import 'dart:convert';
 
 class CatalogModel {
   static List<Item> items = [];
-  static Item getById(String id) =>
+   Item getById(String id) =>
       // ignore: unrelated_type_equality_checks
       items.firstWhere((element) => element.id == id, orElse: null);
 
-  static Item getByPosition(int pos) => items[pos];
+   Item getByPosition(int pos) => items[pos];
 }
 
 class Item {
