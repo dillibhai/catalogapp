@@ -28,7 +28,8 @@ class MyTheme {
         elevation: 0.0,
         iconTheme: IconThemeData(color: Colors.white),
         textTheme: Theme.of(context).textTheme.copyWith(
-              headline6: context.textTheme.headline6,
+              headline6:
+                  context.textTheme.headline6!.copyWith(color: Colors.white),
             ),
       ));
 
