@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:catalogapp/home/catalog-header.dart';
 import 'package:catalogapp/home/catalog_list.dart';
 import 'package:catalogapp/model/catalog.dart';
+import 'package:catalogapp/utils/routes.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -36,23 +38,31 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: context.canvasColor,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.pushNamed(context, MyRoutes.cartRoute);
+          },
+          child: Icon(CupertinoIcons.cart),
+        ),
         body: SafeArea(
-      child: Container(
-        padding: Vx.m32,
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          CatalogHeader(),
-          // ignore: unnecessary_null_comparison
-          if (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
-            CatalogList().expand()
-          else
-            Center(
-              child: CircularProgressIndicator().centered().centered(),
-            ),
-          // "Catalog App".text.xl4.bold.color(MyTheme.darkBluishColor).make(),
-          // "Trending products".text.xl.make(),
-        ]),
-      ),
-    )
+          child: Container(
+            padding: Vx.m32,
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              CatalogHeader(),
+              // ignore: unnecessary_null_comparison
+              if (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+                CatalogList().expand()
+              else
+                Center(
+                  child: CircularProgressIndicator().centered().centered(),
+                ),
+              // "Catalog App".text.xl4.bold.color(MyTheme.darkBluishColor).make(),
+              // "Trending products".text.xl.make(),
+            ]),
+          ),
+        )
         //   padding: const EdgeInsets.all(16.0),
         //   child: ListView.builder(
         //     itemCount: CatalogModel.items.length,
@@ -67,6 +77,3 @@ class _HomePageState extends State<HomePage> {
         );
   }
 }
-
-
-
